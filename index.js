@@ -3,6 +3,8 @@ const getAreaPointsForConvex = points => {
     const calcAng = (point,p) => Math.atan2(point.y - p.y, point.x - p.x) * 180 / Math.PI + 180;
     //we copy  the array.
     let pointsList = [...points];
+    //We need to set the first point, at one extreme be can sorting the array to lower or to highest.
+    pointsList.sort((a,b)=> a.x<b.x && a.y<b.y ? 1:-1)
     //Creates a new empty array.
     let orderedPoints = [];
     // The point that we use to analize.
